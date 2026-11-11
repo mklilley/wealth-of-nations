@@ -13,7 +13,7 @@ This project was made by AI as an educational experiment to demonstrate **what A
 | Tool | Codex |
 | Model | GPT-6.1 Sol |
 | Reasoning effort | Extra high |
-| Original build runtime | 12 minutes, 29 seconds |
+| Original build runtime | 10 minutes, 5 seconds |
 
 “Single prompt” refers to the human input that started the original build. During that run, the AI carried out many steps: inspecting and preparing the data, writing the application, checking its behavior, fixing issues, and deploying it. The visualization linked above is the result of that initial run; this README was subsequently expanded to document the experiment.
 
