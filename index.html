@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f0">
+  <meta name="description" content="Watch 210 years of world history unfold. Explore income, life expectancy and population for 195 countries in an animated, interactive bubble chart.">
+  <title>Wealth of Nations — A world in motion</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Wealth of Nations home"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle cx="10" cy="19" r="7" fill="#62a997"/><circle cx="21" cy="10" r="6" fill="#df9e36"/><circle cx="23" cy="23" r="4" fill="#779bd1"/></svg><span>Wealth of Nations</span></a>
+      <div class="header-right"><span class="edition">AN INTERACTIVE WORLD HISTORY</span><button class="text-button" id="about-button">About the data <span aria-hidden="true">↗</span></button></div>
+    </header>
+
+    <main>
+      <section class="introduction" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span></span> A WORLD IN MOTION</p><h1 id="page-title">Longer lives. <em>Changing fortunes.</em></h1><p class="intro-copy">Two centuries of progress, setbacks, and possibility. Explore how the world has changed.</p></div>
+        <div class="date-stamp"><span>A 210-YEAR JOURNEY</span><strong>1810 <span>—</span> 2020</strong></div>
+      </section>
+
+      <section class="explorer" aria-label="Interactive income and life expectancy explorer">
+        <div class="explorer-toolbar">
+          <div class="view-title"><span class="globe-icon" aria-hidden="true">◎</span><div><h2 id="view-heading">The whole world</h2><span id="view-subtitle">Every bubble is a country. Every country has a story.</span></div></div>
+          <div class="search-wrap"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><input id="country-search" type="search" placeholder="Find a country" aria-label="Find a country" aria-autocomplete="list" aria-controls="search-results" aria-expanded="false" autocomplete="off" disabled><ul id="search-results" role="listbox" aria-label="Matching countries" hidden></ul><kbd aria-hidden="true">/</kbd></div>
+        </div>
+
+        <div class="chart-meta"><p><strong>Life expectancy</strong><span>years</span></p><div class="chart-meta-right"><span id="selected-country" hidden></span><label id="trail-control" hidden><input type="checkbox" id="show-trail" checked> Show path</label><span class="hover-hint">Hover or tap a bubble to explore <span aria-hidden="true">↗</span></span></div></div>
+
+        <div id="chart-wrap" class="chart-wrap" aria-busy="true">
+          <div id="loading" class="loading-message" role="status">Bringing the world into view…</div>
+          <svg id="chart" role="group" aria-label="Income per person versus life expectancy. Bubble area represents population; color represents continent." aria-describedby="chart-description"><defs><clipPath id="plot-clip"><rect id="clip-rect"/></clipPath></defs><g id="grid"></g><g id="axis-labels"></g><text id="year-watermark" aria-hidden="true"></text><g clip-path="url(#plot-clip)"><path id="country-trail" fill="none" stroke-width="2" stroke-dasharray="4 5"/><g id="bubbles"></g></g><g id="bubble-labels" aria-hidden="true"></g></svg>
+          <aside id="tooltip" class="tooltip" role="status" aria-live="polite" hidden></aside>
+          <p id="empty-state" class="empty-state" hidden>Select a continent below to see its countries.</p>
+        </div>
+        <div class="x-axis-title"><strong>Income per person</strong><span>GDP per capita · PPP, inflation adjusted · log scale</span></div>
+
+        <div class="legend-row">
+          <div class="continent-legend" role="group" aria-label="Filter continents"><span class="legend-heading">CONTINENTS</span><div id="continent-filters"></div><button id="reset-filters" class="reset-button" hidden>Reset</button></div>
+          <div class="size-legend" aria-label="Bubble area represents population: 1 million, 10 million, 100 million"><span>Population</span><svg viewBox="0 0 145 44" width="145" height="44" aria-hidden="true"><g fill="none" stroke="#9ba39b" stroke-width="1"><circle cx="18" cy="15" r="1.21" data-population="1000000"/><circle cx="65" cy="15" r="3.84" data-population="10000000"/><circle cx="120" cy="15" r="12.14" data-population="100000000"/></g><g fill="#707b73" font-size="9" text-anchor="middle"><text x="18" y="40">1M</text><text x="65" y="40">10M</text><text x="120" y="40">100M</text></g></svg></div>
+        </div>
+
+        <div class="playback">
+          <button id="play-button" class="play-button" aria-label="Play animation" disabled><svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="M6 3.5 16 10 6 16.5Z" fill="currentColor"/></svg><span>Play</span></button>
+          <div class="year-control"><label class="sr-only" for="year-input">Selected year</label><input id="year-input" type="number" value="1950" min="1810" max="2020" step="1" disabled></div>
+          <div class="timeline"><label class="sr-only" for="year-slider">Timeline year</label><input id="year-slider" type="range" min="1810" max="2020" value="1950" step="1" disabled><div class="timeline-labels" aria-hidden="true"><span>1810</span><span>1850</span><span>1900</span><span>1950</span><span>2020</span></div></div>
+          <div class="playback-options"><label class="sr-only" for="playback-speed">Animation speed</label><select id="playback-speed" aria-label="Animation speed"><option value="0.5">0.5× speed</option><option value="1" selected>1× speed</option><option value="2">2× speed</option></select><button id="restart-button" class="icon-button" title="Restart at 1810" aria-label="Restart at 1810" disabled><svg viewBox="0 0 20 20" width="20" height="20" fill="none" aria-hidden="true"><path d="M4 7a6.5 6.5 0 1 1-.4 5M4 7V2m0 5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+        </div>
+
+        <div class="snapshot-summary" aria-live="off"><span><i class="live-dot"></i><strong id="summary-year">1950</strong> SNAPSHOT</span><p><strong id="country-count">—</strong> countries shown</p><p><strong id="population-total">—</strong> people represented</p><p><strong id="average-life">—</strong> pop.-weighted life expectancy <button id="summary-info" class="info-button" aria-label="About the population weighted average">i</button></p></div>
+      </section>
+
+      <div class="below-chart"><p id="chart-description"><span aria-hidden="true">↔</span> Move through time. Look for patterns. Follow a country’s journey.</p><p><kbd>Space</kbd> play / pause <span>·</span> <kbd>←</kbd> <kbd>→</kbd> change year</p></div>
+    </main>
+    <footer><p>A little perspective on a changing world.</p><button class="text-button" id="methodology-button">Sources & methodology <span aria-hidden="true">↗</span></button></footer>
+  </div>
+
+  <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-header"><p class="eyebrow">BEHIND THE BUBBLES</p><button id="close-dialog" class="icon-button" aria-label="Close data information">✕</button></div><h2 id="about-title">A world of data.<br>A little context.</h2><p>This visualization uses the three supplied historical datasets: income per person, life expectancy, and total population. They contain 195 countries and territories, with values from 1810 to 2020. All three files omit 1847; that year is explicitly shown as unavailable.</p><h3>How to read the chart</h3><p>Moving right means higher GDP per capita; moving up means longer life expectancy. The income axis is logarithmic: an equal distance represents an equal ratio. A bubble’s <strong>area</strong> is proportional to population, with a consistent scale across all years.</p><h3>Sources and geography</h3><p>The original CSVs are preserved in the repository and available below. Income is labeled as purchasing-power-parity (PPP), inflation adjusted. The files do not identify a dollar base year, so none is assumed. Historical values may be estimates.</p><p>Continent assignments come from <a href="https://github.com/datasets/country-codes" target="_blank" rel="noopener noreferrer">DataHub’s country codes</a>, using its continent field and explicit aliases for country names. Transcontinental countries follow that dataset’s assignments.</p><h3>Missing values and animation</h3><p>A country appears only when all three measures exist for the selected year. Missing values are never replaced with zero. The year 1847 is absent from every source file; the chart leaves this gap empty. Movement between annual observations uses linear interpolation; pausing snaps to an actual annual observation. The summary includes only the visible countries, and average life expectancy is weighted by their populations.</p><div class="data-links"><a href="./data/raw/income_per_person_gdppercapita_ppp_inflation_adjusted.csv" download>Income CSV ↗</a><a href="./data/raw/life_expectancy_years.csv" download>Life expectancy CSV ↗</a><a href="./data/raw/population_total.csv" download>Population CSV ↗</a></div><p class="dialog-note">Tip: search for a country to follow its path, or select a continent in the legend to filter the view.</p></dialog>
+</body>
+</html>

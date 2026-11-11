@@ -1,0 +1,15 @@
+{
+  "name": "wealth-of-nations",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An animated exploration of income, life expectancy and population, 1810–2020.",
+  "scripts": {
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "data": "python3 scripts/prepare_data.py",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "happy-dom": "^21.0.4"
+  }
+}
