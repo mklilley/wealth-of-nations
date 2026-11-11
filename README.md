@@ -4,6 +4,31 @@ An interactive exploration of income, life expectancy, and population from **181
 
 **[Open the visualization](https://mklilley.github.io/wealth-of-nations/)** · [GitHub repository](https://github.com/mklilley/wealth-of-nations)
 
+## An AI educational experiment
+
+This project was made by AI as an educational experiment to demonstrate **what AI can now create from a single prompt**. Three raw CSV spreadsheets were provided—income per person, life expectancy, and population—along with the prompt reproduced below. From those inputs, the AI built the visualization, created the Git repository, and published the result to GitHub Pages.
+
+| Build detail | Value |
+| --- | --- |
+| Tool | Codex |
+| Model | GPT-6.1 Sol |
+| Reasoning effort | Extra high |
+| Original build runtime | 12 minutes, 29 seconds |
+
+“Single prompt” refers to the human input that started the original build. During that run, the AI carried out many steps: inspecting and preparing the data, writing the application, checking its behavior, fixing issues, and deploying it. The visualization linked above is the result of that initial run; this README was subsequently expanded to document the experiment.
+
+### Inspiration and comparison
+
+The concept is inspired by Gapminder’s animated bubble charts. [Explore the original Gapminder tool](https://www.gapminder.org/tools/), then [open this experiment’s visualization](https://mklilley.github.io/wealth-of-nations/) to compare the experiences.
+
+This version was created from the user supplied spreadsheet data and the prompt below, without using Gapminder’s original chart as a visual or code reference.
+
+### The original prompt
+
+The following is the original prompt, reproduced verbatim. The three CSV files were supplied separately.
+
+> Attached is income per person over time, life expectancy over time and population over time for different countries. I would like you to create a web-based visualization of this data that shows the progression of income and life expectancy over time for different countries. Each country should be represented by a bubble whose size is proportional to the population. The color of the bubbles should represent the continent. GDP per capita in log scale on X axis, life expectancy on the Y axis. When we hover over the bubbles, we should see which country it is and the specific data associated with that coun try at that time. And we should have a play and pause button so that when somebody hits play, the data animates through time so people can see how the world changes. They should be able to pause and see a snapshot of the world at a particular year. I want you to create a Git repository from the code you make in this folder, and then when you're finished, make a commit, push it to the repository, and then give me the GitHub.io link that I can click on and that I can go straight to the visualization.
+
 ## Explore
 
 - Logarithmic GDP per capita on the horizontal axis; life expectancy on the vertical axis.
@@ -28,7 +53,7 @@ Open <http://localhost:4173>. Use an HTTP server rather than opening `index.html
 
 ## Data
 
-The supplied originals are preserved in [`data/raw/`](data/raw/):
+The three original CSV files were provided as inputs to the experiment and are preserved in `data/raw/`:
 
 | File | Measure |
 | --- | --- |
