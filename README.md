@@ -2,7 +2,7 @@
 
 An interactive exploration of income, life expectancy, and population from **1810 to 2020** for **195 countries and territories**.
 
-**[Open the visualization](https://mklilley.github.io/wealth-of-nations/)** · [GitHub repository](https://github.com/mklilley/wealth-of-nations)
+**[Open the visualization](https://mklilley.github.io/wealth-of-nations/)**
 
 ## An AI educational experiment
 
@@ -27,7 +27,7 @@ This version was created from the user supplied spreadsheet data and the prompt 
 
 The following is the original prompt, reproduced verbatim. The three CSV files were supplied separately.
 
-> Attached is income per person over time, life expectancy over time and population over time for different countries. I would like you to create a web-based visualization of this data that shows the progression of income and life expectancy over time for different countries. Each country should be represented by a bubble whose size is proportional to the population. The color of the bubbles should represent the continent. GDP per capita in log scale on X axis, life expectancy on the Y axis. When we hover over the bubbles, we should see which country it is and the specific data associated with that coun try at that time. And we should have a play and pause button so that when somebody hits play, the data animates through time so people can see how the world changes. They should be able to pause and see a snapshot of the world at a particular year. I want you to create a Git repository from the code you make in this folder, and then when you're finished, make a commit, push it to the repository, and then give me the GitHub.io link that I can click on and that I can go straight to the visualization.
+> Attached is income per person over time, life expectancy over time and population over time for different countries. I would like you to create a web-based visualization of this data that shows the progression of income and life expectancy over time for different countries. Each country should be represented by a bubble whose size is proportional to the population. The color of the bubbles should represent the continent. GDP per capita in log scale on X axis, life expectancy on the Y axis. When we hover over the bubbles, we should see which country it is and the specific data associated with that country at that time. And we should have a play and pause button so that when somebody hits play, the data animates through time so people can see how the world changes. They should be able to pause and see a snapshot of the world at a particular year. I want you to create a Git repository from the code you make in this folder, and then when you're finished, make a commit, push it to the repository, and then give me the GitHub.io link that I can click on and that I can go straight to the visualization.
 
 ## Explore
 
